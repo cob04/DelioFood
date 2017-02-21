@@ -229,7 +229,7 @@ if DJANGO_VERSION < (1, 9):
 # APPLICATIONS #
 ################
 
-INSTALLED_APPS = (
+DJANGO_APPS = (
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -238,6 +238,9 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
+)
+
+MEZZANINE_APPS = (
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -250,6 +253,16 @@ INSTALLED_APPS = (
     # "mezzanine.accounts",
     # "mezzanine.mobile",
 )
+
+THEME_APPS = ()
+
+THIRD_PARTY_APPS = ()
+
+LOCAL_APPS  = (
+    'shop',
+)
+
+INSTALLED_APPS  = THEME_APPS + DJANGO_APPS + MEZZANINE_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
