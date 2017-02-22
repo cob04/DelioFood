@@ -34,6 +34,10 @@ class Product(Displayable, RichText, AdminThumbMixin):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        self.image = self.get_default_image_name()
+        super(Product, self).save(*args, **kwargs)
+
     @property
     def default_variation(self):
         try:
@@ -47,6 +51,17 @@ class Product(Displayable, RichText, AdminThumbMixin):
         if self.default_variation:
             return self.default_variation.unit_price
         return None
+
+    def get_default_image_name(self):
+        """
+        Return the name of the first image in the images list.
+        """
+        try:
+            image = self.images.all().first().image
+            return image.name
+        except AttributeError:
+            pass
+        return ''
 
 @python_2_unicode_compatible
 class Variation(Orderable, Priced):
@@ -67,3 +82,24 @@ class Variation(Orderable, Priced):
 
     def __str__(self):
         return "{}: serves {}".format(self.title, self.no_of_servings)
+
+@python_2_unicode_compatible
+class ProductImage(TimeStamped, Orderable):
+    """
+    Product photos.
+    """
+    image = FileField(_("Image"), max_length=255, format="Image",
+        upload_to=upload_to("shop.ProductImage.file", "products"))
+    caption = models.CharField(_("Caption"), max_length=255, blank=True)
+    product = models.ForeignKey("Product", related_name="images")
+
+    class Meta:
+        verbose_name = _("Image")
+        verbose_name_plural = _("Images")
+
+    def __str__(self):
+        value = self.caption
+        if not value:
+            path = self.image.name
+            _other_part, value = os.path.split(path)
+        return value
