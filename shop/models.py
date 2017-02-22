@@ -42,6 +42,12 @@ class Product(Displayable, RichText, AdminThumbMixin):
             pass
         return None
 
+    @property
+    def price(self):
+        if self.default_variation:
+            return self.default_variation.unit_price
+        return None
+
 @python_2_unicode_compatible
 class Variation(Orderable, Priced):
     """

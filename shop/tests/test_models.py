@@ -23,6 +23,13 @@ class ProductMethodTests(TestCase):
         product = ProductFactory.create()
         self.assertIsNone(product.default_variation)
 
+    def test_getting_default_price_of_product(self):
+        self.assertEqual(self._product1.price, 250)
+
+    def test_getting_default_price_product_with_no_variations(self):
+        product = ProductFactory.create()
+        self.assertIsNone(product.price)
+
 class VariationMethodTests(TestCase):
 
     def setUp(self):
