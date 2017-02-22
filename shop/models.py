@@ -34,6 +34,14 @@ class Product(Displayable, RichText, AdminThumbMixin):
     def __str__(self):
         return self.title
 
+    @property
+    def default_variation(self):
+        try:
+            return self.variations.all().first()
+        except AttributeError:
+            pass
+        return None
+
 @python_2_unicode_compatible
 class Variation(Orderable, Priced):
     """
