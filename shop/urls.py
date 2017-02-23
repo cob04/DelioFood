@@ -4,6 +4,7 @@ from . import views
 
 
 product_urls = [
+    url(r'^$', views.product_list, name='list'),
     url(r'^(?P<slug>[-\w]+)/$', views.product_detail, name='detail'),
 ]
 

@@ -6,6 +6,7 @@ from .model_factory import (ProductFactory, VariationFactory,
 
 MEDIA_ROOT = '/tmp/'
 
+
 @override_settings(MEDIA_ROOT=MEDIA_ROOT)
 class ProductMethodTests(TestCase):
 
@@ -45,6 +46,7 @@ class ProductMethodTests(TestCase):
         img1 = ProductImageFactory(product=product)
         img2 = ProductImageFactory(product=product)
         self.assertEqual(product.get_default_image_name(), img1.image.name)
+
 
 class VariationMethodTests(TestCase):
 

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags %}
+{% load humanize %}
+
+{% block meta_title %}Products{% endblock %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>Products</li>
+{% endblock breadcrumb_menu %}
+
+{% block content %}
+<div class="col-sm-4">
+</div>
+<div class="col-sm-8">
+<div class="row">
+{% for product in product_list %}
+<article class="col-sm-6">
+	<div class="panel panel-default">
+		<img src="{{ MEDIA_URL }}{% thumbnail product.image 400 200 %}" class="img-responsive">
+		<div class="panel-body">
+			<p>{{ product | capfirst }}</p>
+		</div>
+	</div>
+</article>
+{% endfor %}
+</div>
+</div>
+{% endblock content %}

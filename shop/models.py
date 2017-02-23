@@ -44,6 +44,9 @@ class Product(Displayable, RichText, AdminThumbMixin):
 
     @property
     def default_variation(self):
+        """
+        Return the first variation related to a product.
+        """
         try:
             return self.variations.all().first()
         except AttributeError:
@@ -52,6 +55,10 @@ class Product(Displayable, RichText, AdminThumbMixin):
 
     @property
     def price(self):
+        """
+        Return the price of the default variation
+        (the first variation in the list).
+        """
         if self.default_variation:
             return self.default_variation.unit_price
         return None
@@ -66,6 +73,7 @@ class Product(Displayable, RichText, AdminThumbMixin):
         except AttributeError:
             pass
         return ''
+
 
 @python_2_unicode_compatible
 class Variation(Orderable, Priced):
@@ -86,6 +94,7 @@ class Variation(Orderable, Priced):
 
     def __str__(self):
         return "{}: serves {}".format(self.title, self.no_of_servings)
+
 
 @python_2_unicode_compatible
 class ProductImage(TimeStamped, Orderable):
