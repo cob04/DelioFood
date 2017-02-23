@@ -14,7 +14,7 @@ from mezzanine.core.models import (Displayable, Orderable, RichText,
 from mezzanine.pages.models import Page
 from mezzanine.utils.models import AdminThumbMixin, upload_to
 
-
+from .behaviours import Priced
 
 @python_2_unicode_compatible
 class Product(Displayable, RichText, AdminThumbMixin):
@@ -33,3 +33,23 @@ class Product(Displayable, RichText, AdminThumbMixin):
 
     def __str__(self):
         return self.title
+
+@python_2_unicode_compatible
+class Variation(Orderable, Priced):
+    """
+    A variation on a product e.g. Size of meal.
+    """
+    title = models.CharField(max_length=255)
+    product = models.ForeignKey('Product',
+        related_name='variations',
+        null=True,
+        blank=True)
+    no_of_servings = models.PositiveIntegerField(blank=True, null=True)
+    stock = models.PositiveIntegerField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Product Variation'
+        verbose_name_plural = 'Product Variations'
+
+    def __str__(self):
+        return "{}: serves {}".format(self.title, self.no_of_servings)
