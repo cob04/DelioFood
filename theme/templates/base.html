@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags %}
+{% load mezzanine_tags %}
+{% load i18n %}
+{% load staticfiles %}
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<title>{% block meta_title %}Good food tastes better with company{% endblock %} | KitchenPass</title>
+<link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+{% ifinstalled mezzanine.blog %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+{% endifinstalled %}
+
+{% compress css %}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static "font-awesome-4.5.0/css/font-awesome.min.css" %}">
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+{% endif %}
+{% ifinstalled cartridge.shop %}
+<link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+{% endif %}
+{% endifinstalled %}
+{% block extra_css %}{% endblock %}
+{% endcompress %}
+
+{% compress js %}
+<!-- <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script> -->
+<script src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/bootstrap-extras.js" %}"></script>
+{% block extra_js %}{% endblock %}
+{% endcompress %}
+
+<!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+{% block extra_head %}{% endblock %}
+</head>
+<body id="{% block body_id %}body{% endblock %}">
+{% include "includes/_navbar.html" %}
+
+{% block wrap_content %}
+<div class="wrap-content {% block background_class %}{% endblock background_class %}">
+    <div class="container">
+        {% block breadcrumb %}
+        <ul class="breadcrumb">
+        {% spaceless %}
+        {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+        {% endspaceless %}
+        {% endblock breadcrumb %}
+        </ul>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</div>
+{% endblock wrap_content %}
+
+{% block hr_border %}
+<div class="container">
+        <hr style="border-color: #e7e7e7;"/>
+ </div>
+{% endblock hr_border %}
+
+{% block footer %}
+    {% include "includes/_footer.html" %}
+{% endblock footer %}
+
+{% block footer_js %}
+{% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+</body>
+</html>

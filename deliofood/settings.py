@@ -238,6 +238,7 @@ DJANGO_APPS = (
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
 )
 
 MEZZANINE_APPS = (
@@ -254,7 +255,9 @@ MEZZANINE_APPS = (
     # "mezzanine.mobile",
 )
 
-THEME_APPS = ()
+THEME_APPS = (
+    'theme',
+)
 
 THIRD_PARTY_APPS = ()
 

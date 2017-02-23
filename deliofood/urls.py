@@ -38,6 +38,10 @@ urlpatterns += [
     # one out.
 
     url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+ 
+    # LOCAL_APPS_URLS
+    # ---------------
+    url(r'^', include('shop.urls', namespace='shop')),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------

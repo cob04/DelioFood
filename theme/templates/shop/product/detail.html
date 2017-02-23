@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags %}
+{% load humanize %}
+
+{% block meta_title %}{{ product.title }}{% endblock meta_title %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>{{ product.title }}</li>
+{% endblock breadcrumb_menu %}
+
+{% block content %}
+<div class="col-sm-6">
+	<img src="{{ MEDIA_URL }}{% thumbnail product.image 450 400 %}" class="img-responsive">
+</div>
+<div class="col-sm-6">
+	<h1>{{ product }}</h1>
+	<p class="star-rating 5">
+		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i>
+	</p>
+	<p>{{ product.description }}</p>
+	<h3>- Platter Size Options - </h3>
+	<ol>
+		{% for variation in product.variations.all %}
+		<li><h1><small>{{ variation }}</small> <span class="price">Ksh {{ variation.unit_price|intcomma }}</span></h1></li>	
+		{% endfor %}
+	</ol>
+	<hr id="make-an-order"/>
+	<h3 class="text-center">- Place an Order -</h3>
+</div>
+{% endblock content %}

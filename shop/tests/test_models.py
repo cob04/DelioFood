@@ -19,6 +19,11 @@ class ProductMethodTests(TestCase):
     def test_product_string_representation(self):
         self.assertEqual(str(self._product1), 'Burger')
 
+    def test_getting_abosolute_url(self):
+        self.assertEqual(self._product1.get_absolute_url(),
+            '/products/burger/'
+        )
+
     def test_getting_product_default_variation(self):
         self.assertEqual(
             self._product1.default_variation,

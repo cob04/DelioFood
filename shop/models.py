@@ -16,6 +16,7 @@ from mezzanine.utils.models import AdminThumbMixin, upload_to
 
 from .behaviours import Priced
 
+
 @python_2_unicode_compatible
 class Product(Displayable, RichText, AdminThumbMixin):
     """
@@ -37,6 +38,9 @@ class Product(Displayable, RichText, AdminThumbMixin):
     def save(self, *args, **kwargs):
         self.image = self.get_default_image_name()
         super(Product, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('shop:product:detail', kwargs={'slug': self.slug})
 
     @property
     def default_variation(self):
