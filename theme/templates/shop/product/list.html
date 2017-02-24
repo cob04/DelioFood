@@ -130,7 +130,7 @@
 						</a>
 					</h2>
 					{% if product.price %}
-					<p class="price_color">Ksh {{ product.price }}</p>
+					<p class="price_color">Ksh {{ product.price | intcomma }}</p>
 					{% endif %}
 				</div>
 			</div>
