@@ -321,11 +321,8 @@ hr.fancy-title-hr{
 
 }
 /* ================ Product ================== */
-.product-panel img {
-  border-radius: 3px 3px 0 0;
-}
 .product-panel .product-title {
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-style: bold;
 }
 
@@ -354,6 +351,10 @@ hr.list-seperator {
   display: block;
   color: #5cb85c;
   font-weight: bold;
+}
+
+.star-rating i {
+  color: #E6CE31;
 }
 /** BUTTONS
 =========== **/

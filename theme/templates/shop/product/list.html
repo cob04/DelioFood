@@ -118,23 +118,7 @@
 <div class="col-sm-9">
 	<div class="row">
 		{% for product in product_list %}
-		<article class="col-sm-6">
-			<div class="product-panel panel panel-default">
-				<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
-					<img src="{{ MEDIA_URL }}{% thumbnail product.image 500 300 %}" class="img-responsive">
-				</a>
-				<div class="panel-body">
-					<h2 class="product-title">
-						<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
-							{{ product.title }}
-						</a>
-					</h2>
-					{% if product.price %}
-					<p class="price_color">Ksh {{ product.price | intcomma }}</p>
-					{% endif %}
-				</div>
-			</div>
-		</article>
+			{% include 'shop/product/includes/list_item.html' %}
 		{% endfor %}
 		<div class="clearfix"></div>
 	</div>
