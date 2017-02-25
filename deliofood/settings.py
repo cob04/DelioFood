@@ -6,6 +6,13 @@ from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
 
 
+#################
+# SHOPPING_CART #
+#################
+
+# shopping cart session id
+CART_SESSION_ID = 'cart'
+
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -213,6 +220,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "mezzanine.conf.context_processors.settings",
                 "mezzanine.pages.context_processors.page",
+                # shopping cart
+                "cart.context_processors.cart",
             ],
             "builtins": [
                 "mezzanine.template.loader_tags",
@@ -259,10 +268,13 @@ THEME_APPS = (
     'theme',
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'crispy_forms',
+)
 
 LOCAL_APPS  = (
     'shop',
+    'cart',
 )
 
 INSTALLED_APPS  = THEME_APPS + DJANGO_APPS + MEZZANINE_APPS + THIRD_PARTY_APPS + LOCAL_APPS

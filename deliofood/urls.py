@@ -41,8 +41,9 @@ urlpatterns += [
 
     # LOCAL_APPS_URLS
     # ---------------
+    url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^', include('shop.urls', namespace='shop')),
-
+    
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
     # This pattern gives us a normal ``Page`` object, so that your

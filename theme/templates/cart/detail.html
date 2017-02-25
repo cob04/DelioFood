@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load mezzanine_tags%}
+{% load humanize %}
+
+{% block meta_title %} Your Cart {% endblock meta_title %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>Shopping Cart</li>
+{% endblock breadcrumb_menu %}
+
+{% block content %}
+<div class="container">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h2 class="title text-center"><i class="fa fa-shopping-basket orange"></i> Your <span class="orange">Items</span></h2>
+				<hr style="width:50%"/>
+				{% if cart %}
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>Quantity</th>
+								<th>Unit price</th>
+								<th>Price</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in cart %}
+							{% with product=item.product %}
+							<tr>
+								<td>
+									{% if product.image %}
+									<img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail product.image 50 50 %}">
+									{% endif %}
+								</td>
+								<td>{{ product.title }}: {{ item.variation.name }}</td>
+								<td>
+									<form action="{% url "cart:add" product.id %}" method="post">
+										{{ item.update_quantity_form.quantity }}
+										{{ item.update_quantity_form.update }}
+										<input type="submit" value="Update" class="btn btn-info">
+										{% csrf_token %}
+									</form>
+								</td>
+								<td>Ksh {{ item.unit_price | intcomma }}</td>
+								<td>Ksh {{ item.total_price | intcomma }}</td>
+								<td><a href=""><span class="badge">&times;</span></a></td>
+							</tr>
+							{% endwith %}
+							{% endfor %}
+							<tr class="form-actions">
+								<td colspan="4"><h3>Total</h3></td>
+								<td colspan="2"><h3><span class="green-color">Ksh</span> {{ cart.get_total_price | intcomma }}</h3></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				{% else %}
+				<h3 class="text-center">Your shopping cart is empty</h3>
+				<div class="text-center">
+				<span class="hidden-xs">
+					<a href="{% url 'home' %}" class="btn btn-lg btn-action"><i class="fa fa-arrow-left"></i> Go Back to Home</a>
+				</span>
+				</div>
+				<span class="hidden-sm hidden-md hidden-lg">
+					<a href="{% url 'home' %}" class="btn btn-action btn-block btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
+				</span>
+				{% endif %}
+				{% if cart %}
+				<span class="pull-left hidden-xs">
+					<a href="{% url 'home' %}" class="btn btn-lg btn-action"><i class="fa fa-arrow-left"></i> Back to Home</a>
+				</span>
+				<span class="pull-left hidden-sm hidden-md hidden-lg">
+					<a href="{% url 'home' %}" class="btn btn-action btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
+				</span>
+				<span class="pull-right hidden-xs">
+					<a href="{% url 'orders:create' %}" class="btn btn-lg btn-success">Checkout <i class="fa fa-arrow-right"></i></a>
+				</span>
+				<span class="pull-right hidden-sm hidden-md hidden-lg">
+					<a href="{% url 'orders:create' %}" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
+				</span>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% endblock content %}
