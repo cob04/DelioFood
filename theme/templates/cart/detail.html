@@ -83,10 +83,10 @@
 					<a href="{% url 'home' %}" class="btn btn-action btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
 				</span>
 				<span class="pull-right hidden-xs">
-					<a href="#" class="btn btn-lg btn-success">Checkout <i class="fa fa-arrow-right"></i></a>
+					<a href="{% url "orders:create" %}" class="btn btn-lg btn-success">Checkout <i class="fa fa-arrow-right"></i></a>
 				</span>
 				<span class="pull-right hidden-sm hidden-md hidden-lg">
-					<a href="#" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
+					<a href="{% url "orders:create" %}" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
 				</span>
 				{% endif %}
 			</div>

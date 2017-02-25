@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block meta_title %} Checkout {% endblock meta_title %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li><a href="{% url "cart:detail" %}">Shopping Cart</a></li>
+<li>Checkout</li>
+{% endblock breadcrumb_menu %}
+
+{% block content %}
+<div class="col-md-8">
+	<h1 class="title"><span>Checkout</span> <small>Enter your billing/delivery info below</small></h1>
+	{% crispy form form.helper %}
+</div>
+<div class="col-md-4">
+	<div class="order-info">
+		<h3 class="heading">Your <span>Order</span></h3>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ul>
+					{% for item in cart %}
+					<li>
+						<div class="row">
+							<div class="col-xs-3"><img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail item.product.image 50 50 %}"></div>
+							<div class="col-xs-9">
+								{{ item.quantity }} x {{ item.product.title }}
+								<span> Ksh{{ item.total_price | intcomma }}</span>
+							</div>
+						</div>
+						<hr/>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="panel-footer">
+				<h3>Total: Ksh{{ cart.get_total_price | intcomma }}</h3>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

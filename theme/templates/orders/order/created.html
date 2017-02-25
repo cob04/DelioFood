@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags %}
+{% load crispy_forms_tags %}
+
+{% block meta_title %} Order Successful {% endblock meta_title %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li><a href="{% url "cart:detail" %}">Shopping Cart</a></li>
+<li>Checkout Complete</li>
+{% endblock breadcrumb_menu %}\
+
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+	<div class="panel panel-default">
+		<div class="panel-body text-center">
+			<h1 class="title">Thank <span>You!!</span></h1>
+			<p><i style="color:green;" class="fa fa-check"></i> Your order has been successfully completed.</p>
+			<p><i style="color:#ff3510;" class="fa fa-phone"></i> We will <strong>Contact</strong> you with the <strong>delivery details</strong>.</p>
+		</div>
+	</div>
+</div>
+{% endblock content %}

@@ -24,7 +24,9 @@
 			<div class="row">
 			<div class="col-xs-3">
 					{% if product.image %}
-					<img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail product.image 50 50 %}">
+					<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
+						<img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail product.image 50 50 %}">
+					</a>
 					{% endif %}
 				</div>
 				<div class="col-xs-9">
@@ -77,7 +79,7 @@
 			<a href="{% url 'home' %}" class="btn btn-action btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
 		</span>
 		<span class="pull-right">
-			<a href="#" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
+			<a href="{% url "orders:create" %}" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
 		</span>
 		{% endif %}
 </div>
