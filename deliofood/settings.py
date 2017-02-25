@@ -6,6 +6,13 @@ from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
 
 
+########################
+# DELIOFOOD SETTINGS #
+########################
+
+#admins
+ADMINS = [('Eric', 'ericobain@gmail.com'),]
+
 ##########################
 # SHOPPING_CART SETTINGS #
 ##########################
@@ -39,6 +46,15 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 #     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
 #     ("Users", ("auth.User", "auth.Group",)),
 # )
+
+ADMIN_MENU_ORDER = (
+    ("Shop", ("shop.Product",)),
+    ("Orders", ("orders.Order",)),
+    ("Content", ("pages.Page", "blog.BlogPost",
+        "generic.ThreadedComment", (_("Media Library"), "media-library"),)),
+    ("Users", ("auth.User", "auth.Group",)),
+    ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
+)
 
 # A three item sequence, each containing a sequence of template tags
 # used to render the admin dashboard.
@@ -115,7 +131,7 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
