@@ -20,6 +20,20 @@
             <ul class="nav navbar-nav navbar-left">
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url "cart:detail" %}">
+                    <i class="fa fa-shopping-cart"></i>
+                    {% with total_items=cart|length %}
+                    Cart <span class="badge">
+                    {% if cart|length > 0 %}
+                    {{ total_items }} item{{ total_items|pluralize }}, Ksh{{ cart.get_total_price }}
+                    {% else %}
+                    {{ total_items }}
+                    </span>
+                    {% endif %}
+                    </a>
+                    {% endwith %}
+                </li>
                 {% ifinstalled mezzanine.accounts %}
                 {% if user.is_authenticated %}
                 <li class="dropdown">

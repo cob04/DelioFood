@@ -37,10 +37,12 @@
 							<tr>
 								<td>
 									{% if product.image %}
-									<img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail product.image 50 50 %}">
+									<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
+										<img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail product.image 50 50 %}">
+									</a>
 									{% endif %}
 								</td>
-								<td>{{ product.title }}: {{ item.variation.name }}</td>
+								<td>{{ product.title }}: {{ item.variation.title }}</td>
 								<td>
 									<form action="{% url "cart:add" product.id %}" method="post">
 										{{ item.update_quantity_form.quantity }}
@@ -65,9 +67,9 @@
 				{% else %}
 				<h3 class="text-center">Your shopping cart is empty</h3>
 				<div class="text-center">
-				<span class="hidden-xs">
-					<a href="{% url 'home' %}" class="btn btn-lg btn-action"><i class="fa fa-arrow-left"></i> Go Back to Home</a>
-				</span>
+					<span class="hidden-xs">
+						<a href="{% url 'home' %}" class="btn btn-lg btn-action"><i class="fa fa-arrow-left"></i> Go Back to Home</a>
+					</span>
 				</div>
 				<span class="hidden-sm hidden-md hidden-lg">
 					<a href="{% url 'home' %}" class="btn btn-action btn-block btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
@@ -81,10 +83,10 @@
 					<a href="{% url 'home' %}" class="btn btn-action btn-sm"><i class="fa fa-arrow-left"></i> Back to Home</a>
 				</span>
 				<span class="pull-right hidden-xs">
-					<a href="{% url 'orders:create' %}" class="btn btn-lg btn-success">Checkout <i class="fa fa-arrow-right"></i></a>
+					<a href="#" class="btn btn-lg btn-success">Checkout <i class="fa fa-arrow-right"></i></a>
 				</span>
 				<span class="pull-right hidden-sm hidden-md hidden-lg">
-					<a href="{% url 'orders:create' %}" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
+					<a href="#" class="btn btn-success btn-sm">Checkout <i class="fa fa-arrow-right"></i></a>
 				</span>
 				{% endif %}
 			</div>

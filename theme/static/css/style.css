@@ -326,6 +326,11 @@ hr.fancy-title-hr{
   font-style: bold;
 }
 
+.product-panel label,
+.product-panel textarea,
+.product-panel select {
+  display: none;
+}
 .product-panel .price_color {
   font-family: inherit;
   font-weight: 500;
@@ -355,6 +360,9 @@ hr.list-seperator {
 
 .star-rating i {
   color: #E6CE31;
+}
+.unavailable {
+  color: red;
 }
 /** BUTTONS
 =========== **/

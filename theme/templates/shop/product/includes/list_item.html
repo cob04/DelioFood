@@ -30,7 +30,17 @@
 			{% if product.price %}
 			<h2><span>{{ product.default_variation }}</span> <span class="price_color">Ksh {{ product.price | intcomma }}</span></h2>
 			<hr/>
-			<button class="btn btn-action btn-block">ADD TO CART</button>
+			<p>
+				<form method="POST" action="{% url 'cart:add' product.id %}">
+					{% csrf_token %}
+					{{ cart_add_form }}
+					<div class="form-group">
+						<button type="submit" class="btn-block btn btn-action"><i class="fa fa-shopping-cart"></i> ORDER NOW</button>
+					</div>
+				</form>
+			</p>
+			{% else %}
+			<h3 class="unavailable"><span classs="badge">&times;</span> Unavailable at the moment.</h3>
 			{% endif %}
 		</div>
 	</div>

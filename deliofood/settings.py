@@ -6,12 +6,19 @@ from django import VERSION as DJANGO_VERSION
 from django.utils.translation import ugettext_lazy as _
 
 
-#################
-# SHOPPING_CART #
-#################
+##########################
+# SHOPPING_CART SETTINGS #
+##########################
 
 # shopping cart session id
 CART_SESSION_ID = 'cart'
+
+#########################
+# CRISPY FORMS SETTINGS #
+#########################
+
+CRISPY_TEMPLATE_PACK = "bootstrap3"
+
 
 ######################
 # MEZZANINE SETTINGS #

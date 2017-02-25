@@ -2,6 +2,7 @@
 
 {% load mezzanine_tags %}
 {% load humanize %}
+{% load crispy_forms_tags %}
 
 {% block meta_title %}{{ product.title }}{% endblock meta_title %}
 
@@ -17,13 +18,19 @@
 <div class="col-sm-6">
 	<h1>{{ product }}</h1>
 	<p class="star-rating 5">
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
+		<span>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star-o"></i>
+			<i class="fa fa-star-o"></i>
+		</span>
+		<span class="pull-right">
+			<strong>(0) REVIEWS</strong>
+		</span>
 	</p>
 	<p>{{ product.description }}</p>
+	{% if product.default_variation %}
 	<h3>- Platter Size Options - </h3>
 	<ol>
 		{% for variation in product.variations.all %}
@@ -32,5 +39,9 @@
 	</ol>
 	<hr id="make-an-order"/>
 	<h3 class="text-center">- Place an Order -</h3>
+	{% crispy form  form.helper %}
+	{% else %}
+	<h3 class="unavailable"><span classs="badge">&times;</span> Unavailable at the moment.</h3>
+	{% endif %}
 </div>
 {% endblock content %}
