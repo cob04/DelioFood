@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import override_settings
 
 from .model_factory import (ProductFactory, VariationFactory,
-    ProductImageFactory)
+    ProductImageFactory, MenuFactory, MenuItemFactory)
 
 MEDIA_ROOT = '/tmp/'
 
@@ -79,3 +79,26 @@ class ProductImageMethodTests(TestCase):
         """
         self.assertEqual(str(self._img1), 'burger')
         self.assertEqual(str(self._img2), self._img2.image.name.split('/')[2])
+
+
+@override_settings(MEDIA_ROOT=MEDIA_ROOT)
+class MenuTests(TestCase):
+
+    def setUp(self):
+        self._menu = MenuFactory.create()
+
+    def test_menu_string_representation(self):
+        self.assertEqual(str(self._menu), 'DelioRibs')
+
+
+class MenuItemTests(TestCase):
+
+    def setUp(self):
+        self._menu = MenuFactory.create()
+        self._product = ProductFactory.create()
+        self._menu_item = MenuItemFactory(
+            menu=self._menu,
+            product=self._product)
+
+    def test_menu_item_string_representation(self):
+        self.assertEqual(str(self._menu_item), self._product.title)

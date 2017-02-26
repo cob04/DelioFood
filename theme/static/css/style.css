@@ -177,7 +177,7 @@ hr.fancy-title-hr{
   }
 }
 
-/* HEADER 
+/* INDEX PAGE HEADER 
 ================================================ */
 .intro-header {
   background: url(../img/bg2.jpg) no-repeat;
@@ -246,6 +246,78 @@ hr.fancy-title-hr{
     width: 100%;
   }
   .intro-message .call-to-action {
+    font-size: 1em;
+  }
+}
+/* MENU PAGE HEADER
+=========================================== */
+.menu-intro-header {
+  background-position: center right;
+  background-size: cover;
+}
+.menu-intro-header .container {
+  padding-top: 5%;
+  padding-bottom: 2% 
+}
+.menu-intro-message {
+  color: #fff;
+  padding-top: 6%;
+  padding-bottom: 5%;
+}
+
+.menu-intro-message h1 {
+  font-family: Helvetica Neue, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.4em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.menu-intro-message h3 {
+  font-size: 1.8em;
+  color: #fff;
+  text-align: center;
+  font-weight: 200;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.menu-intro-message h4 {
+  font-size: 1.4em;
+  width: 75%;
+  color: #fff;
+  font-weight: 200;
+  margin-bottom: 1em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+.menu-intro-message p {
+  font-size: 1em;
+  color: #F5F5F5;
+  line-height: 1.9em;
+  width: 75%;
+  margin-bottom: 0.8em;
+}
+
+.menu-intro-message .call-to-action {
+  font-size: 1.4em;
+}
+@media (max-width: 360px){
+  .menu-intro-message h1 {
+    font-size: 2em;
+  }
+  .menu-intro-message h3 {
+    font-size: 1.5em;
+  }
+  .menu-intro-message h4 {
+    font-size: 1.2em;
+  }
+  .menu-intro-message {
+    padding-top:20%;
+  }
+  .menu-intro-message h3 {
+    width: 100%;
+  }
+  .menu-intro-message .call-to-action {
     font-size: 1em;
   }
 }
@@ -401,6 +473,13 @@ hr.list-seperator {
   border-color: #FF530A;
 }
 
+/* Badge 
+================================= */
+
+span.cart-badge.badge:hover ,
+span.cart-badge.badge:hover {
+  background-color: #C21E1E;
+}
 /* ========================================================================
   2.16 Component: Footer
  ========================================================================== */
