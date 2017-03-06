@@ -30,7 +30,7 @@ class CartAddProductForm(forms.Form):
             self.fields['variation'] = forms.ModelChoiceField(
                 queryset=self._product.variations.all()
             )
-            self.fields['variation'].label="Select platter size"
+            self.fields['variation'].label="Select Option"
         self.fields['quantity'].label="No of Platters."
         self.fields['instructions'].label="Additional information"
         self.helper = FormHelper()

@@ -35,7 +35,7 @@
 	<h3 class="text-center">- Available Options - </h3>
 	<ol>
 		{% for variation in product.variations.all %}
-		<li><h1><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h1></li>
+		<li><h3><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h3></li>
 		{% endfor %}
 	</ol>
 	<hr id="make-an-order"/>
