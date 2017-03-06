@@ -58,7 +58,7 @@ class VariationMethodTests(TestCase):
     def test_variation_string_representation(self):
         self.assertEqual(
             str(self._variation1),
-            'Medium: serves 5')
+            'Medium - 5 people')
 
 
 @override_settings(MEDIA_ROOT=MEDIA_ROOT)

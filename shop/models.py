@@ -93,7 +93,7 @@ class Variation(Orderable, Priced):
         verbose_name_plural = 'Product Variations'
 
     def __str__(self):
-        return "{}: serves {}".format(self.title, self.no_of_servings)
+        return "{} - {} people".format(self.title, self.no_of_servings)
 
 
 @python_2_unicode_compatible

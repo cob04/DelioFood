@@ -1,19 +1,16 @@
 {% load mezzanine_tags %}
 {% load humanize %}
 
-<article class="col-sm-6">
-	<div class="panel panel-default product-panel">
+<article class="col-sm-6 product-item">
+	<a  href="{{ product.get_absolute_url }}" title="{{ product.title }}">
+	<div class="panel product-panel">
 		<div class="panel-body">
 			<h2 class="product-title">
-				<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
 					{{ product.title }}
-				</a>
 			</h2>
 			<p>{{ product.description | truncatewords:10 }}</p>
 		</div>
-		<a href="{{ product.get_absolute_url }}" title="{{ product.title }}">
 			<img src="{{ MEDIA_URL }}{% thumbnail product.image 500 300 %}" class="img-responsive">
-		</a>
 		<div class="panel-body">
 			<p class="star-rating 5">
 				<span>
@@ -28,20 +25,17 @@
 				</span>
 			</p>
 			{% if product.price %}
-			<h2><span>{{ product.default_variation }}</span> <span class="price_color">Ksh {{ product.price | intcomma }}</span></h2>
-			<hr/>
-			<p>
-				<form method="POST" action="{% url 'cart:add' product.id %}">
-					{% csrf_token %}
-					{{ cart_add_form }}
-					<div class="form-group">
-						<button type="submit" class="btn-block btn btn-action"><i class="fa fa-shopping-cart"></i> ORDER NOW</button>
-					</div>
-				</form>
-			</p>
+				{% if product.default_variation %}
+				<hr/>
+				<p class="options text-center">- Available Options -</p>
+				{% endif %}
+				{% for variation in product.variations.all %}
+					<h2><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h2>
+				{% endfor %}
 			{% else %}
-			<h3 class="unavailable"><span classs="badge">&times;</span> Unavailable at the moment.</h3>
+			<h4 class="unavailable">Unavailable at the moment.</h4>
 			{% endif %}
 		</div>
 	</div>
+	</a>
 </article>

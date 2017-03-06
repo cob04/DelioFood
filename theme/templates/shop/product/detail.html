@@ -31,10 +31,11 @@
 	</p>
 	<p>{{ product.description }}</p>
 	{% if product.default_variation %}
-	<h3>- Platter Size Options - </h3>
+	<hr/>
+	<h3 class="text-center">- Available Options - </h3>
 	<ol>
 		{% for variation in product.variations.all %}
-		<li><h1><small>{{ variation }}</small> <span class="price">Ksh {{ variation.unit_price|intcomma }}</span></h1></li>	
+		<li><h1><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h1></li>
 		{% endfor %}
 	</ol>
 	<hr id="make-an-order"/>
