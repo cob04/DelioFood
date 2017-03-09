@@ -180,12 +180,92 @@ hr.fancy-title-hr{
   }
 }
 
-/* INDEX PAGE HEADER 
+/* INDEX PAGE SLIDER 
 ================================================ */
+#tf-home.slider { background: none }
+#tf-home.slider .overlay { background: rgba(0, 0, 0, 0.40); padding: 0 }
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    top: 28%;
+    bottom: auto;
+    left: 15%;
+    z-index: 10;
+    padding-top: 5px;
+    padding-bottom: 0;
+    color: #fff;
+    text-align: center;
+    text-shadow: none;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}
+.carousel-indicators .active {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    background-color: #FF531A;
+}
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active { opacity: 1 }
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right { opacity: 1 }
+.carousel-fade .carousel-control { z-index: 2 }
+
+.content-heading h1 {
+  font-family: Helvetica Neue, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.4em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.content-heading h3 {
+  font-size: 1.8em;
+  width: 80%;
+  color: #fff;
+  text-align: center;
+  font-weight: 200;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* INDEX PAGE HEADER 
+============================================================= */
 .intro-header {
   background: url(../img/bg2.jpg) no-repeat;
   background-position: center right;
   background-size: cover;
+  min-height: 500px;
 }
 .intro-header .container {
   padding-top: 5%;
@@ -251,6 +331,24 @@ hr.fancy-title-hr{
   .intro-message .call-to-action {
     font-size: 1em;
   }
+}
+
+.intro-panel {
+  padding: 20px;
+  margin-top: 150px;
+  background: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  width: 300px;
+}
+.intro-panel h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.intro-panel p {
+  text-align
+}
+.intro-panel a {
+  text-transform: uppercase;
 }
 /* MENU PAGE HEADER
 =========================================== */

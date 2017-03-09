@@ -306,6 +306,7 @@ LOCAL_APPS  = (
     'shop',
     'cart',
     'orders',
+    'promotions',
 )
 
 INSTALLED_APPS  = THEME_APPS + DJANGO_APPS + MEZZANINE_APPS + THIRD_PARTY_APPS + LOCAL_APPS

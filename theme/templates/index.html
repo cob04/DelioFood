@@ -1,25 +1,53 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
+{% load mezzanine_tags %}
 {% load pages_tags %}
 
+{% block extra_css %}
+  <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet" media="screen">
+  <link href="{% static "css/owl.theme.css" %}" rel="stylesheet" media="screen">
+{% endblock extra_css %}
+
 {% block wrap_content %}
-<div class="intro-header">
+<div id="tf-home" class="slider">
   <div class="overlay">
-    <div class="container">
-      <div class="intro-message">
-        <div class="col-md-7">
-          <h1><strong>Good food</strong> tastes better with <strong>Company.</strong></h1>
-          <h3>Order in meals as a <strong>group</strong>, we'll deliver.</h3>
-          <h4><em>It's affordable and you get to share.</em></h4>
-          <a href="#menus" class="call-to-action btn-lg btn btn-action hidden-xs">Checkout Our Menus <i class="fa fa-arrow-right"></i></a>
-          <a href="#menus" class="call-to-action btn-lg btn-block btn btn-action hidden-lg hidden-md hidden-sm">Checkout Our Menus <i class="fa fa-arrow-right"></i></a>
+    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        {% for slide in slides %}
+        <li data-target="#carousel-example-generic" data-slide-to="{% if slide.index == 0 %}index{% endif %}" class="active"></li>
+        {% endfor %}
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        {% for slide in slides %}
+        <div class="item {% if slide.index == 0 %}active{% endif %}">
+          <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1028 500 %}" class="img-responsive" style="width:100%;">
+          <div class="carousel-caption">
+           <div class="content-heading text-center"> 
+            <h1>DelioFood, GOod food tastes better with company.</h1>
+            <h3>Lorem ipsum dolor sit amet, consectetur ...</h3>
+            <a href="#" class="btn btn-lg btn-action">Order Now</a>
+          </div>
         </div>
-        <div class="clearfix"> </div>
+        <div class="carousel-caption">
+          <p></p>
+        </div>
       </div>
+      {% endfor %}
     </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
   </div>
 </div>
+</div>
+
 <section id="menus" class="content-section-b">
   <div class="container">
     {% page_menu "pages/menus/listing.html" %}
@@ -65,3 +93,14 @@
   {% endblock wrap_content %}
 
   {% block hr_border %}{% endblock hr_border %}
+  <div class="intro-header">
+    <div class="container">
+      <div class="col-sm-4 col-sm-offset-8">
+        <div class="intro-panel">
+          <h1>Hello Yay!!!</h1>
+          <p>blah blah blah blah<p>
+            <a href="#" class="btn btn-lg btn-action">Order Now <i class="fa fa-arrow-right"></i></a>      
+          </div>
+        </div>
+      </div>
+    </div>

@@ -9,5 +9,5 @@ product_urls = [
 ]
 
 urlpatterns = [
-    url(r'products/', include(product_urls, namespace='product')),
+    url(r'menu/', include(product_urls, namespace='product')),
 ]
