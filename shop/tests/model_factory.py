@@ -3,7 +3,7 @@ import tempfile
 
 from django.core.files import File
 
-from ..models import (Product, ProductImage, Variation, Menu, MenuItem)
+from ..models import (Product, ProductImage, Variation, Package, PackageItem)
 
 
 class ProductFactory(factory.DjangoModelFactory):
@@ -40,19 +40,19 @@ class ProductImageFactory(factory.DjangoModelFactory):
     image = get_test_image_file()
     product = factory.SubFactory(ProductFactory)
 
-class MenuFactory(factory.DjangoModelFactory):
+class PackageFactory(factory.DjangoModelFactory):
 
     class Meta:
-        model = Menu
+        model = Package
 
     title = 'DelioRibs'
     description = 'ribs ribs ribs'
     cover_image = get_test_image_file()
 
-class MenuItemFactory(factory.DjangoModelFactory):
+class PackageItemFactory(factory.DjangoModelFactory):
 
     class Meta:
-        model = MenuItem
+        model = PackageItem
 
     product = factory.SubFactory(ProductFactory)
-    menu = factory.SubFactory(MenuFactory)
+    package = factory.SubFactory(PackageFactory)

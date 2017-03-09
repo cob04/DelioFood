@@ -119,28 +119,28 @@ class ProductImage(TimeStamped, Orderable):
 
 
 @python_2_unicode_compatible
-class Menu(Page):
+class Package(Page, RichText):
     """
     Grouping Products together under a package.
     """
     cover_image = FileField(_("Cover image"), max_length=255, format="Image",
-        upload_to=upload_to("shop.Menu.cover_image", "cover_images"))
+        upload_to=upload_to("shop.Package.cover_image", "cover_images"))
 
     class Meta:
-        verbose_name = 'Delio Menu'
-        verbose_name_plural = 'Delio Menus'
+        verbose_name = 'Package'
+        verbose_name_plural = 'Packages'
 
     def __str__(self):
         return self.title
 
 
 @python_2_unicode_compatible
-class MenuItem(Orderable):
+class PackageItem(Orderable):
     """
     A product listed in a Menu.
     """
     product = models.ForeignKey('Product', related_name='products')
-    menu = models.ForeignKey('Menu', related_name='items')
+    package = models.ForeignKey('Package', related_name='items')
 
     def __str__(self):
         return self.product.title

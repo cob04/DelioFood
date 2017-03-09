@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import override_settings
 
 from .model_factory import (ProductFactory, VariationFactory,
-    ProductImageFactory, MenuFactory, MenuItemFactory)
+    ProductImageFactory, PackageFactory, PackageItemFactory)
 
 MEDIA_ROOT = '/tmp/'
 
@@ -82,23 +82,23 @@ class ProductImageMethodTests(TestCase):
 
 
 @override_settings(MEDIA_ROOT=MEDIA_ROOT)
-class MenuTests(TestCase):
+class PackageTests(TestCase):
 
     def setUp(self):
-        self._menu = MenuFactory.create()
+        self._package = PackageFactory.create()
 
-    def test_menu_string_representation(self):
-        self.assertEqual(str(self._menu), 'DelioRibs')
+    def test_package_string_representation(self):
+        self.assertEqual(str(self._package), 'DelioRibs')
 
 
-class MenuItemTests(TestCase):
+class PackageItemTests(TestCase):
 
     def setUp(self):
-        self._menu = MenuFactory.create()
+        self._package = PackageFactory.create()
         self._product = ProductFactory.create()
-        self._menu_item = MenuItemFactory(
-            menu=self._menu,
+        self._package_item = PackageItemFactory(
+            package=self._package,
             product=self._product)
 
-    def test_menu_item_string_representation(self):
-        self.assertEqual(str(self._menu_item), self._product.title)
+    def test_package_item_string_representation(self):
+        self.assertEqual(str(self._package_item), self._product.title)

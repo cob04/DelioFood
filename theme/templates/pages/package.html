@@ -8,7 +8,7 @@
 {% block meta_title %}{{ page.title }}{% endblock %}
 
 {% block wrap_content %}
-<div class="menu-intro-header" style="background-image: url('{{ page.menu.cover_image.url }}')">
+<div class="menu-intro-header" style="background-image: url('{{ page.package.cover_image.url }}')">
 	<div class="dark-overlay">
 		<div class="container">
 			<div class="menu-intro-message">
@@ -34,12 +34,12 @@
 		</div>
 	<div class="col-sm-10 col-sm-offset-1">
 		<div class="row">
-			{% for item in page.menu.items.all %}
+			{% for item in page.package.items.all %}
 			{% with product=item.product %}
 			{% include "shop/product/includes/list_item.html" %}
 			{% endwith %}
 			{% empty %}
-			<h1>Move along nothing to see here.</h1>
+			<h1 class="text-center"><em>Move along nothing to see here.</em></h1>
 			{% endfor %}
 			<div class="clearfix"></div>
 		</div>

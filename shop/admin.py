@@ -7,7 +7,7 @@ from mezzanine.core.admin import (DisplayableAdmin, TabularDynamicInlineAdmin)
 from mezzanine.pages.admin import PageAdmin
 
 from .forms import ImageWidget
-from .models import (Product, ProductImage, Variation, Menu, MenuItem)
+from .models import (Product, ProductImage, Variation, Package, PackageItem)
 
 
 class ProductImageInline(TabularDynamicInlineAdmin):
@@ -34,10 +34,10 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline, VariationInline]
     fieldsets = product_fieldsets
 
-class MenuItemInline(TabularDynamicInlineAdmin):
-    model = MenuItem
+class PackageItemInline(TabularDynamicInlineAdmin):
+    model = PackageItem
 
-@admin.register(Menu)
-class MenuAdmin(PageAdmin):
-    inlines = [MenuItemInline]
+@admin.register(Package)
+class PackageAdmin(PageAdmin):
+    inlines = [PackageItemInline]
     fieldsets = deepcopy(PageAdmin.fieldsets)
