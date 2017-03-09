@@ -416,16 +416,33 @@ hr.fancy-title-hr{
 
 
 /* ================ Product ================== */
-.product-panel .product-title {
+.product-title {
   text-transform: uppercase;
-  font-style: bold;
+  font-weight: 600;
+}
+.product-panel {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
 }
 
-.product-panel label,
-.product-panel textarea,
-.product-panel select {
-  display: none;
+.product-panel .product-title {
+  color: #000;
 }
+.product-panel .options {
+  color: #000;
+}
+.product-item a:hover {
+    text-decoration: none;
+}
+.product-item a:hover .product-title,
+.product-item a:active .product-title {
+  color: #FF530A;
+}
+.product-item a:hover .product-panel,
+.product-item a:active .product-panel {
+  border: 1px solid #e7e7e7;
+}
+
 .product-panel .price_color {
   font-family: inherit;
   font-weight: 500;
