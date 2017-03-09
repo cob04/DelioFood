@@ -429,12 +429,6 @@ hr.fancy-title-hr{
 .product-panel .price_color {
   font-family: inherit;
   font-weight: 500;
-  line-height: 1.1;
-  color: inherit;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 19px;
-  line-height: 1.4;
   color: #5cb85c;
 }
 hr.list-seperator {
