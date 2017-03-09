@@ -136,7 +136,11 @@ hr.fancy-title-hr{
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 .navbar-default .navbar-nav > li > a {
-  font-size: 1.1em;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    font-family: helvetica;
 }
 .navbar-default .navbar-nav > li > a {
   text-shadow: 0px 1px 1px rgba(0,0,0,0.1); 
@@ -163,7 +167,6 @@ hr.fancy-title-hr{
     height: 1.8em;
   }
 }
-
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
