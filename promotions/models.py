@@ -26,6 +26,8 @@ class Slide(Orderable):
     """
     image = FileField(_("Image"), max_length=255, format="Image",
         upload_to=upload_to("promotions.Slide.file", "promotions"))
+    heading = models.TextField(blank=True)
+    sub_heading = models.TextField(blank=True)
     page = models.ForeignKey('HomePage', related_name='slides')
 
     class Meta:
