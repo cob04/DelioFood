@@ -94,8 +94,9 @@ ul {
 }
 .heading span {
   font-size: 45px;
-  color: #ff530a;
-  font-weight: 600;
+  color: #FF530A;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 .title {
   color: #2E2E2E;
@@ -117,6 +118,7 @@ ul {
   color: #2E2E2E;
   padding-top: 30px;
   padding-bottom: 10px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
 .fancy-title span {
@@ -261,10 +263,9 @@ hr.fancy-title-hr{
 /* INDEX PAGE HEADER 
 ============================================================= */
 .intro-header {
-  background: url(../img/bg2.jpg) no-repeat;
+  background: url(../img/pizza.jpg) no-repeat;
   background-position: center right;
   background-size: cover;
-  min-height: 500px;
 }
 .intro-header .container {
   padding-top: 5%;
@@ -287,15 +288,15 @@ hr.fancy-title-hr{
 }
 .intro-message h3 {
   font-size: 1.8em;
-  width: 80%;
   color: #fff;
+  width: 80%;
   font-weight: 200;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 .intro-message h4 {
   font-size: 1.4em;
-  width: 75%;
   color: #fff;
+  width: 75%;
   font-weight: 200;
   margin-bottom: 1em;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -303,9 +304,13 @@ hr.fancy-title-hr{
 .intro-message p {
   font-size: 1em;
   color: #F5F5F5;
-  line-height: 1.9em;
   width: 75%;
+  line-height: 1.9em;
   margin-bottom: 0.8em;
+}
+.intro-message .fancy-title-hr {
+    border-color: #FF530A;
+    width: 75%;
 }
 
 .intro-message .call-to-action {
@@ -348,6 +353,22 @@ hr.fancy-title-hr{
 }
 .intro-panel a {
   text-transform: uppercase;
+}
+/* INDEX_PAGE_SERVICES
+================================= */
+.service-listing {
+  text-align: center;
+  margin-bottom: 50px;
+
+}
+.service-listing h2 {
+  color: #000;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.service-listing img {
+  border: 3px solid #FF531A;
+  border-radius: 5px;
 }
 /* MENU PAGE HEADER
 =========================================== */
@@ -436,9 +457,8 @@ hr.fancy-title-hr{
 }
 .content-section-c {
   background-color: #fff;
-}
-.content-section-d {
-  color: #fff;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
 }
 .content-section-d .container {
   padding: 50px 0;
@@ -450,8 +470,6 @@ hr.fancy-title-hr{
 
 }
 .content-section-e {
-  padding-top: 80px;
-  padding-bottom:50px;
   background: url(../img/pizza.jpg) no-repeat;
   background-position: center right;
   background-attachment: fixed;
@@ -459,21 +477,39 @@ hr.fancy-title-hr{
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
 }
+.content-section-e h1,
+.content-section-e h2,
+.content-section-e p {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+.content-section-e .content {
+  text-align: center;
+  padding: 70px 0;
+}
+.content-section-f {
+  padding: 50px 0;
+  background-color: #34495E;
+  color: #fff;
+}
+.content-section-f h1,
+.content-section-f h3,
+.content-section-f p {
+  color: #fff;
+}
 .how-it-works {
   text-align: center;
 }
 .how-it-works .title {
   padding: 0px 0px;
 }
+
 .how-it-works h3 {
   text-transform: uppercase;
   font-weight: 300;
 }
 .how-it-works hr {
   width: 40%
-}
-.how-it-works p {
-  color: #000;
 }
 
 .navbar-form label {
@@ -570,6 +606,12 @@ hr.list-seperator {
 .unavailable {
   color: red;
 }
+@media (max-height: 768px){
+  .options {
+    font-size: 1em;
+  }
+}
+
 /** BUTTONS
 =========== **/
 .btn-primary, .btn-success, .btn-action

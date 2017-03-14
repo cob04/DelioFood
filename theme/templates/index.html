@@ -5,55 +5,42 @@
 {% load pages_tags %}
 
 {% block extra_css %}
-  <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet" media="screen">
-  <link href="{% static "css/owl.theme.css" %}" rel="stylesheet" media="screen">
+<link href="{% static "css/owl.carousel.css" %}" rel="stylesheet" media="screen">
+<link href="{% static "css/owl.theme.css" %}" rel="stylesheet" media="screen">
 {% endblock extra_css %}
 
 {% block wrap_content %}
-<div id="tf-home" class="slider">
-  <div class="overlay">
-    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        {% for slide in slides %}
-        <li data-target="#carousel-example-generic" data-slide-to="{% if slide.index == 0 %}index{% endif %}" class="active"></li>
-        {% endfor %}
-      </ol>
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        {% for slide in slides %}
-        <div class="item {% if slide.index == 0 %}active{% endif %}">
-          <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1028 500 %}" class="img-responsive" style="width:100%;">
-          <div class="carousel-caption">
-           <div class="content-heading text-center"> 
-            <h1>Hahah hot sauce and ketchup</h1>
-            <h3>Buy buy buy..</h3>
-            <a href="#" class="btn btn-lg btn-action">Order Now</a>
-          </div>
+<div class="intro-header">
+  <div class="dark-overlay">
+    <div class="container">
+      <div class="intro-message">
+        <div class="col-md-8">
+          <h1>Indulge yourselves, It's Delicious</h1>
+          <hr align="left" class="fancy-title-hr"/>
+          <h3>Order Online: 5 Star <strong>group meals</strong>.</h3>
+          <h4><em>It's affordable and you get to share.</em></h4>
         </div>
-        <div class="carousel-caption">
-          <p></p>
-        </div>
+        <div class="clearfix"> </div>
       </div>
-      {% endfor %}
     </div>
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
   </div>
-</div>
 </div>
 
-<section id="menus" class="content-section-b">
+<section id="menus" class="content-section-c">
   <div class="container">
+    <div class="row">
+     <h1 class="text-center fancy-title">Group <span>Events</span></h1>
+     <div class="col-sm-6 col-sm-offset-3">
+      <h3 class="text-center"><em>For your group events and occasions, here's what we provide for a stress free <strong>5 Star</strong> dining experience.</em></h3>
+      <hr class="fancy-title-hr"/>
+    </div>
+  </div>
+  <div class="row">
     {% page_menu "pages/menus/listing.html" %}
   </div>
+</div>
 </section>
-<section class="content-section-a">
+<section class="content-section-f">
   <div class="container">
    <h1 class="text-center fancy-title">How <span>It Works</span></h1>
    <hr class="fancy-title-hr"/>
@@ -76,31 +63,39 @@
   </div>
 </div>
 </section>
-<section class="content-section-b">
+<section class="content-section-a">
   <div class="container contact">
     <div class="col-sm-6 col-sm-offset-3">
-      <h1 class="title">Contact <span>Information</span></h1>
-      <hr class="fancy-title-hr"/>
-      <h3>Talk to us incase of any questions or requests.</h3>
-      <p><strong><i class="fa fa-phone"></i> Phone</strong>: 0700 000 000</p>
-      <p><strong><i class="fa fa-at"></i> Email</strong>: support@deliofood.com</p>
-      <h4 class="heading"><span>Hours</span><h4>
+      <h4 class="heading"><span>Delivery Hours</span><h4>
+        <h3>We make deliveries during these time windows.</h3>
+        <hr class="fancy-title-hr"/>
         <p><strong>Monday - Friday</strong>: 10am - 6pm</p>
         <p><strong>Saturday - Sunday</strong>: Best not to ask.</p>
       </div>
     </div>
   </section>
-  {% endblock wrap_content %}
-
-  {% block hr_border %}{% endblock hr_border %}
-  <div class="intro-header">
-    <div class="container">
-      <div class="col-sm-4 col-sm-offset-8">
-        <div class="intro-panel">
-          <h1>Hello Yay!!!</h1>
-          <p>blah blah blah blah<p>
-            <a href="#" class="btn btn-lg btn-action">Order Now <i class="fa fa-arrow-right"></i></a>      
-          </div>
+  <section class="content-section-e">
+    <div class="overlay">
+      <div class="container">
+        <div class="content">
+          <h1><em>Checkout Our <strong>Frequently Asked Questions</strong> for more information.</h1>
+          <a href="#" class="btn btn-info btn-lg">Go To FAQs</a>
         </div>
       </div>
     </div>
+  </section>
+  <section class="content-section-b">
+    <div class="container contact">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1 class="fancy-title">Contact <span>Information</span></h1>
+        <h3>Talk to us incase of any questions or requests.</h3>
+        <hr class="fancy-title-hr"/>
+        <p><strong><i class="fa fa-phone"></i> Phone</strong>: 0700 000 000</p>
+        <p><strong><i class="fa fa-at"></i> Email</strong>: support@deliofood.com</p>
+      </div>
+    </div>
+  </section>
+
+  {% endblock wrap_content %}
+
+  {% block hr_border %}{% endblock hr_border %}

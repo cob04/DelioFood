@@ -12,25 +12,12 @@
 		</div>
 			<img src="{{ MEDIA_URL }}{% thumbnail product.image 500 300 %}" class="img-responsive">
 		<div class="panel-body">
-			<p class="star-rating 5">
-				<span>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-o"></i>
-					<i class="fa fa-star-o"></i>
-				</span>
-				<span class="pull-right">
-					<strong>(0) REVIEWS</strong>
-				</span>
-			</p>
 			{% if product.price %}
 				{% if product.default_variation %}
-				<hr/>
 				<p class="options text-center">- Available Options -</p>
 				{% endif %}
 				{% for variation in product.variations.all %}
-					<h3><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h3>
+					<h3 class="options"><span>{{ variation }}</span><span class="price_color pull-right">KSH {{ variation.unit_price | intcomma }}</span></h3>
 				{% endfor %}
 			{% else %}
 			<h4 class="unavailable">Unavailable at the moment.</h4>

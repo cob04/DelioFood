@@ -4,23 +4,16 @@
 
 {% for page in page_branch %}
 {% if page.in_menu %}
-{% with image=page.menu.cover_image %}
+{% with image=page.package.cover_image %}
 <div class="col-sm-6">
-	<a href="{{ page.get_absolute_url }}">
-		<div class="menu-listing" style="background-image: url('{{ page.package.cover_image.url }}')">
-			<div class="dark-overlay">
-				<div class="body">
-					<h1>- {{ page.title }} -</h1>
-					{% page_menu page %}
-					<p>{{ page.description | truncatewords:15 }}</p>
-					<div class="text-center">
-					<a href="{{ page.get_absolute_url }}" class=" hidden-xs btn btn-default btn-lg">Check out {{ page.title }} <i class="fa fa-arrow-right"></i></a>
-					<a href="{{ page.get_absolute_url }}" class="hidden-lg hidden-md hidden-sm btn btn-default btn-sm">Check out {{ page.title }} <i class="fa fa-arrow-right"></i></a>
-				</div>
-				</div>
-			</div>
-		</div>
-	</a>
+	<div class="service-listing">
+		<a href="{{ page.get_absolute_url }}">
+			<img src="{{ MEDIA_URL }}{% thumbnail image 360 200 %}" class="img-reponsive">
+		</a>
+		<h2>{{ page.title }}</h2>
+		<p>{{ page.description | truncatewords:30 }}</p>
+		<a href="{{ page.get_absolute_url }}" class="btn btn-action">See Platters</a>
+	</div>
 </div>
 {% endwith %}
 {% endif %}

@@ -22,7 +22,7 @@ class ProductMethodTests(TestCase):
 
     def test_getting_abosolute_url(self):
         self.assertEqual(self._product1.get_absolute_url(),
-            '/products/burger/'
+            '/menu/burger/'
         )
 
     def test_getting_product_default_variation(self):
