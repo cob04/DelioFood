@@ -164,7 +164,20 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
+AUTHENTICATION_BACKENDS = (
+    #"mezzanine.core.auth_backends.MezzanineBackend",
+    # social_django
+    "social_core.backends.twitter.TwitterOAuth",
+    "social_core.backens.facebook.FacebookOAuth2",
+
+    "django.contrib.auth.backends.ModelBackends",
+)
+
+# Auth url settings.
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
 
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
@@ -250,6 +263,9 @@ TEMPLATES = [
                 "mezzanine.pages.context_processors.page",
                 # shopping cart
                 "cart.context_processors.cart",
+                # social django
+                "social_django.context_processor.backends",
+                "social_django.context_processor.login_redirect",
             ],
             "builtins": [
                 "mezzanine.template.loader_tags",
@@ -298,6 +314,7 @@ THEME_APPS = (
 
 THIRD_PARTY_APPS = (
     'crispy_forms',
+    'social_django',
 )
 
 LOCAL_APPS  = (
@@ -333,6 +350,8 @@ MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.SitePermissionMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
+    # social_django
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 )
 
 # Store these package names here as they may change in the future since

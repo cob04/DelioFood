@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.views.i18n import set_language
 
 from mezzanine.core.views import direct_to_template
@@ -38,6 +39,12 @@ urlpatterns += [
     # one out.
 
     #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+
+    # THIRD_PARTY_APPS_URLS
+    # ---------------------
+    url(r'login/$', auth_views.login, name='login'),
+    url(r'logout/$', auth_views.logout, name='logout'),
+    url(r'oauth/', include('social_django.urls', namespace='social')),
 
     # LOCAL_APPS_URLS
     # ---------------
