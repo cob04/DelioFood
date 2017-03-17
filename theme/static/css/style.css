@@ -181,7 +181,33 @@ hr.fancy-title-hr{
     text-align: center;
   }
 }
+/* ---- dropdown ----- */
+.navbar-default .dropdown-menu {
+  font-size: 1.2em;
+}
+.navbar-default .dropdown-menu > li > a:hover,
+.navbar-default .dropdown-menu > li > a:focus {
+  color: #FF530A;
+}
 
+.navbar-default .dropdown-menu > .active > a,
+.navbar-default .dropdown-menu > .active > a:hover,
+.navbar-default .dropdown-menu > .active > a:focus {
+  background-color: #AB4725;
+  color: #fff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #000;
+}
+.navbar-default .dropdown-menu {
+    min-width: 250px;
+    padding: 10px 0;
+    margin: 2px 0 0;
+    border-radius: 0;
+}
 /* INDEX PAGE SLIDER 
 ================================================ */
 #tf-home.slider { background: none }

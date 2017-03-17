@@ -1,18 +1,21 @@
-{% load mezzanine_tags %}
 {% load pages_tags %}
-{% load static %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
 
 <ul class="nav navbar-nav navbar-left">
 	<li class="dropdown">
-		<a data-toggle="dropdown" data-target="#" href="http://www.google.com">
-			Group Packages <span class="caret"></span>
-		</a>
+		<a class="dropdown-toggle" data-toggle="dropdown"  href="#">Group Packages <span class="caret"></span></a>
 		<ul class="dropdown-menu">
 		{% for page in page_branch %}
-		{% if page.in_menu %}
-			<li><a href="{{ page.get_absolute_url }}">page.title</a></li>
+    	{% if page.in_menu %}
+			<li class="{% if page.is_current_or_ascendant %}active{% endif %}">
+				<a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+			</li>
 		{% endif %}
 		{% endfor %}
 		</ul>
 	</li>
 </ul>
+{% endif %}
+{% endspaceless %}
