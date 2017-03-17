@@ -264,8 +264,8 @@ TEMPLATES = [
                 # shopping cart
                 "cart.context_processors.cart",
                 # social django
-                "social_django.context_processor.backends",
-                "social_django.context_processor.login_redirect",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
             "builtins": [
                 "mezzanine.template.loader_tags",
