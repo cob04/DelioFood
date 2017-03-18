@@ -53,7 +53,7 @@
 								</td>
 								<td>Ksh {{ item.unit_price | intcomma }}</td>
 								<td>Ksh {{ item.total_price | intcomma }}</td>
-								<td><a href="" title="Remove from shopping cart"><span class="cart-badge badge">&times;</span></a></td>
+								<td><a href="{% url "cart:remove" product.id %}" title="Remove from shopping cart"><span class="cart-badge badge">&times;</span></a></td>
 							</tr>
 							{% endwith %}
 							{% endfor %}
