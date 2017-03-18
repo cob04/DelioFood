@@ -144,6 +144,9 @@ hr.fancy-title-hr{
     color: #000;
     font-family: helvetica;
 }
+.navbar-default .navbar-nav > li > a .badge {
+  text-transform: capitalize;
+}
 .navbar-default .navbar-nav > li > a {
   text-shadow: 0px 1px 1px rgba(0,0,0,0.1); 
 }
@@ -621,9 +624,8 @@ hr.list-seperator {
   color: #5cb85c;
 }
 .price_color {
-  display: block;
   color: #5cb85c;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .star-rating i {

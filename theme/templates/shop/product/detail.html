@@ -12,36 +12,36 @@
 {% endblock breadcrumb_menu %}
 
 {% block content %}
-<div class="col-sm-6">
-	<img src="{{ MEDIA_URL }}{% thumbnail product.image 450 400 %}" class="img-responsive">
-</div>
-<div class="col-sm-6">
-	<h1>{{ product }}</h1>
-	<p class="star-rating 5">
-		<span>
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star-o"></i>
-			<i class="fa fa-star-o"></i>
-		</span>
-		<span class="pull-right">
-			<strong>(0) REVIEWS</strong>
-		</span>
-	</p>
-	<p>{{ product.description }}</p>
-	{% if product.default_variation %}
-	<h3>- Platter Size Options - </h3>
-	<ol>
-		{% for variation in product.variations.all %}
-		<li><h1><small>{{ variation }}</small> <span class="price">Ksh {{ variation.unit_price|intcomma }}</span></h1></li>	
-		{% endfor %}
-	</ol>
-	<hr id="make-an-order"/>
-	<h3 class="text-center">- Place an Order -</h3>
-	{% crispy form  form.helper %}
-	{% else %}
-	<h3 class="unavailable"><span classs="badge">&times;</span> Unavailable at the moment.</h3>
-	{% endif %}
+<div class="row">
+	<h1 class="text-center product-title">{{ product }}</h1>
+	<hr class="fancy-title-hr"/>
+	<div class="col-md-4">
+		<img src="{{ MEDIA_URL }}{% thumbnail product.image 450 400 %}" class="img-responsive">
+	</div>	
+	<div class="col-md-4">
+		
+				<p>{{ product.description }}</p>
+				{% if product.default_variation %}
+				<hr/>
+				<h4 class="text-center">- Platter Size Options -</h4>
+				<ol>
+					{% for variation in product.variations.all %}
+					<li><h3>{{ variation }},   <span class="price_color">Ksh {{ variation.unit_price|intcomma }}</span></h3></li>	
+					{% endfor %}
+				</ol>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-success">
+			<div class="panel-title">
+		<h3 class="text-center">- Place an Order -</h3>
+	</div>
+		<div class="panel-body">
+		{% crispy form  form.helper %}
+		{% else %}
+		<h3 class="unavailable"><span classs="badge">&times;</span> Unavailable at the moment.</h3>
+		{% endif %}
+		</div>
+	</div>
+	</div>
 </div>
 {% endblock content %}

@@ -27,7 +27,7 @@
                     {% with total_items=cart|length %}
                     Cart <span class="badge">
                     {% if cart|length > 0 %}
-                    {{ total_items }} item{{ total_items|pluralize }}, Ksh{{ cart.get_total_price }}
+                    {{ total_items }} item{{ total_items|pluralize }}, Ksh {{ cart.get_total_price }}
                     {% else %}
                     {{ total_items }}
                     </span>
