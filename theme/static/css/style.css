@@ -557,6 +557,25 @@ hr.fancy-title-hr{
   color: #727272;
 
 }
+/* FAQ
+========================================= */
+.faq {
+  margin-bottom: 30px;
+}
+.faq h3 { 
+  font-family: helvetica Neue; sans serif;
+}
+.faq .A {
+  color: #FF530A;
+  font-size: 1.5em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+.faq .Q {
+  color: #FF531A;
+  font-size: 1.5em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
 /* Home Page Body Menu
 ========================================= */
 .menu-listing {

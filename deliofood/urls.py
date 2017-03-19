@@ -37,13 +37,14 @@ urlpatterns += [
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
 
     # LOCAL_APPS_URLS
     # ---------------
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
-    url(r'^', include('promotions.urls')),
+    url(r'^faqs/', include('faqs.urls')),
+    # url(r'^', include('promotions.urls')),
     url(r'^', include('shop.urls', namespace='shop')),
     
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE

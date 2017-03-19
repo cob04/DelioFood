@@ -83,6 +83,8 @@ PAGE_MENU_TEMPLATES = (
      (4, _("Home Packages"), "pages/menus/listing.html"),
  )
 
+PAGE_MENU_TEMPLATES_DEFAULT = ()
+
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
 # The first two items are the dotted path to the model and its field
@@ -305,6 +307,7 @@ LOCAL_APPS  = (
     'cart',
     'orders',
     'promotions',
+    'faqs',
 )
 
 INSTALLED_APPS  = THEME_APPS + DJANGO_APPS + MEZZANINE_APPS + THIRD_PARTY_APPS + LOCAL_APPS

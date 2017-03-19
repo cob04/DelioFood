@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags %}
+{% load humanize %}
+{% load pages_tags %}
+{% load staticfiles  %}
+
+{% block meta_title %}Frequently Asked Questions {% endblock %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>FAQs</li>
+{% endblock breadcrumb_menu %}
+
+{% block content %}
+<h1 class="text-center fancy-title">Frequently <span>Asked Questions</span></h1>
+<hr class="fancy-title-hr"/>
+<ul class="text-center">
+	{% for item in faq_list %}
+	<li class="faq">
+		<h3><span class="Q">Q:</span> {{ item.question }}</h3>
+		<p>{{ item.answer }}</p>
+	</li>
+	{% empty %}
+	<li><h1>Sorry, No questions have been added yet.</h1></li>
+	{% endfor %}
+</ul>
+{% endblock content %}
