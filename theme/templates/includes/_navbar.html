@@ -35,6 +35,9 @@
                     </a>
                     {% endwith %}
                 </li>
+                <li>
+                    <a href="{% url 'faqs' %}"><i class="fa fa-question"></i> FAQs</a>
+                </li>
                 {% ifinstalled mezzanine.accounts %}
                 {% if user.is_authenticated %}
                 <li class="dropdown">
