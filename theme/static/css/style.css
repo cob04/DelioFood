@@ -607,6 +607,12 @@ hr.fancy-title-hr{
 .product-title {
   text-transform: uppercase;
   font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+@media (max-width: 400px){
+  .product-title {
+    font-size: 1.2em;
+  }
 }
 .product-panel {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
