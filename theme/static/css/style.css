@@ -398,6 +398,10 @@ hr.fancy-title-hr{
 .service-listing img {
   border: 3px solid #FF531A;
   border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 /* MENU PAGE HEADER
 =========================================== */
