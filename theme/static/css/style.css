@@ -561,6 +561,9 @@ hr.fancy-title-hr{
   color: #727272;
 
 }
+.normal-font {
+  font-family: helvetica Neue; sans serif;
+}
 /* FAQ
 ========================================= */
 .faq {

@@ -26,6 +26,14 @@ CART_SESSION_ID = 'cart'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
+#######################
+# BOOTSTRAP3 SETTINGS #
+#######################
+
+BOOTSTRAP3 = {
+    "horizontal-label-class": "col-md-4",
+    "horizontal-field-class": "col-md-8",
+}
 
 ######################
 # MEZZANINE SETTINGS #
@@ -290,7 +298,7 @@ MEZZANINE_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    # "mezzanine.accounts",
+    "mezzanine.accounts",
     # "mezzanine.mobile",
 )
 
@@ -300,6 +308,7 @@ THEME_APPS = (
 
 THIRD_PARTY_APPS = (
     'crispy_forms',
+    'bootstrap3',
 )
 
 LOCAL_APPS  = (
