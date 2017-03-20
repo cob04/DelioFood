@@ -46,6 +46,9 @@ BOOTSTRAP3 = {
 # of settings Mezzanine implements:
 # http://mezzanine.jupo.org/docs/configuration.html#default-settings
 
+# Use only email account for authentication.
+ACCOUNTS_NO_USERNAME = True
+
 # Controls the ordering and grouping of the admin menu.
 #
 # ADMIN_MENU_ORDER = (
