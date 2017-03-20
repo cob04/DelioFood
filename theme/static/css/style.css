@@ -138,7 +138,7 @@ hr.fancy-title-hr{
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 .navbar-default .navbar-nav > li > a {
-    font-size: 1.1em;
+    font-size: 0.8em;
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
@@ -674,6 +674,7 @@ hr.list-seperator {
 .btn-primary, .btn-success, .btn-action
 .btn-info, .btn-warning, .btn-danger {
   text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  font-family: helvetica; sans serif;
 }
 .btn { padding:7px 20px; font-weight: bold; border:0 none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
 .btn-lg { padding: 15px 65px; font-size: 14px; font-weight:bold; }

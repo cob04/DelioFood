@@ -19,6 +19,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 {% page_menu 'pages/menus/package_dropdown.html' %}
+                 <li>
+                    <a href="{% url 'faqs' %}"><i class="fa fa-question"></i> FAQs</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -34,9 +37,6 @@
                     {% endif %}
                     </a>
                     {% endwith %}
-                </li>
-                <li>
-                    <a href="{% url 'faqs' %}"><i class="fa fa-question"></i> FAQs</a>
                 </li>
                 {% ifinstalled mezzanine.accounts %}
                 {% if user.is_authenticated %}
