@@ -16,24 +16,19 @@
 {% block content %}
 {% bootstrap_form_errors form %}
 <div class="col-md-8 col-md-offset-2">
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h1 class="fancy-title text-center">{{ title }}</h1>
-            <p class="text-center">Create a new account using the form below.</p>
-            <hr class="fancy-title-hr"/>
-            <form class="form-horizontal" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-                {% csrf_token %}
-                {% bootstrap_form form layout="horizontal" %}
-                <div class="form-group">
-                    <div class="col-md-9 col-md-offset-3">
-                        {% block account_form_actions %}
-                        <input class="btn btn-success btn-lg" type="submit" value="{{ title }}">
-                        {% endblock %}
-                    </div>
-                </div>
-            </form>
+    <h1 class="fancy-title text-center">{{ title }}</h1>
+    <p class="text-center">Create a new account using the form below.</p>
+    <hr class="fancy-title-hr"/>
+    <form class="form-horizontal" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+        {% csrf_token %}
+        {% bootstrap_form form layout="horizontal" %}
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-3">
+                {% block account_form_actions %}
+                <input class="btn btn-success btn-lg" type="submit" value="{{ title }}">
+                {% endblock %}
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 {% endblock %}
