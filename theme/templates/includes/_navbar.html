@@ -3,6 +3,7 @@
 {% load pages_tags %}
 {% load humanize %}
 {% load mezzanine_tags %}
+{% load nav %}
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -19,12 +20,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 {% page_menu 'pages/menus/package_dropdown.html' %}
-                 <li>
+                 <li class="{% active_nav request 'faqs' %}">
                     <a href="{% url 'faqs' %}"><i class="fa fa-question"></i> FAQs</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li class="{% active_nav request 'detail' %}">
                     <a href="{% url "cart:detail" %}">
                     <i class="fa fa-shopping-cart"></i>
                     {% with total_items=cart|length %}
@@ -48,8 +49,12 @@
                     </ul>
                 </li>
                 {% else %}
-                <li><a href="{% url 'signup' %}"><i class="fa fa-sign-up"></i> Sign up</a></li>
-                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log in</a></li>
+                <li  class="{% active_nav request 'signup' %}" >
+                    <a href="{% url 'signup' %}"><i class="fa fa-sign-up"></i> Sign up</a>
+                </li>
+                <li  class="{% active_nav request 'login' %}" >
+                    <a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log in</a>
+                </li>
                 {% endif %}
                 {% endifinstalled %}
             </ul>
