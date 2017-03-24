@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load mezzanine_tags %}
+{% load bootstrap3 %}
+
+{% block meta_title %}{{ title }}{% endblock %}
+{% bootstrap_css %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_id %}account{% endblock %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li>{{ title }}</li>
+{% endblock %}
+{% block content %}
+{% bootstrap_form_errors form %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="fancy-title text-center" style="padding-top: 0;">{{ title }}</h1>
+                <hr class="fancy-title-hr"/>
+                <form class="form-horizontal" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                    {% csrf_token %}
+                    {% bootstrap_form form layout="horizontal" %}
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                            {% block account_form_actions %}
+                            <input class="btn btn-action btn-lg" type="submit" value="{{ title }}">
+                            {% endblock %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

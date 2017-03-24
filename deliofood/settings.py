@@ -26,6 +26,14 @@ CART_SESSION_ID = 'cart'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
+#######################
+# BOOTSTRAP3 SETTINGS #
+#######################
+
+BOOTSTRAP3 = {
+    "horizontal-label-class": "col-md-4",
+    "horizontal-field-class": "col-md-8",
+}
 
 ######################
 # MEZZANINE SETTINGS #
@@ -37,6 +45,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 # overriding. Please consult the settings documentation for a full list
 # of settings Mezzanine implements:
 # http://mezzanine.jupo.org/docs/configuration.html#default-settings
+
+# Use only email account for authentication.
+ACCOUNTS_NO_USERNAME = True
 
 # Controls the ordering and grouping of the admin menu.
 #
@@ -290,7 +301,7 @@ MEZZANINE_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    # "mezzanine.accounts",
+    "mezzanine.accounts",
     # "mezzanine.mobile",
 )
 
@@ -300,6 +311,7 @@ THEME_APPS = (
 
 THIRD_PARTY_APPS = (
     'crispy_forms',
+    'bootstrap3',
 )
 
 LOCAL_APPS  = (
