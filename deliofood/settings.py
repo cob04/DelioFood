@@ -183,6 +183,8 @@ AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
+# Enable profile
+ACCOUNTS_PROFILE_MODEL = 'profiles.Profile'
 
 #############
 # DATABASES #
@@ -319,6 +321,7 @@ LOCAL_APPS  = (
     'cart',
     'orders',
     'promotions',
+    'profiles',
     'faqs',
 )
 
