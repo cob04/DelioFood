@@ -177,7 +177,8 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
-AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
+# disable mezzanine auth backends because we're using a custom auth app.
+# AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
@@ -301,7 +302,7 @@ MEZZANINE_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "mezzanine.accounts",
+    # "mezzanine.accounts",
     # "mezzanine.mobile",
 )
 
@@ -315,6 +316,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS  = (
+    'accounts',
     'shop',
     'cart',
     'orders',
